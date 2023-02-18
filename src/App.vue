@@ -27,15 +27,32 @@
         </ul>
         
         <div class="header-nav-options">
-          <button class="header-nav-options-item"><img src="@/assets/images/svg/contacts.svg" alt="contacts"></button>
-          <button class="header-nav-options-item"><img src="@/assets/images/svg/heart.svg" alt="favourite"></button>
-          <button class="header-nav-options-item"><img src="@/assets/images/svg/basket.svg" alt="basket"></button>
+          <button class="header-nav-options-item">
+            
+            
+            
+            <img src="@/assets/images/svg/contacts.svg" alt="contacts">
+          </button>
+          <button class="header-nav-options-item">
+            <img src="@/assets/images/svg/heart.svg" alt="favourite">
+          </button>
+          <button class="header-nav-options-item">
+            <img src="@/assets/images/svg/basket.svg" alt="basket">
+          </button>
         </div>
         
       </div>
     </nav>
     <!-- header nav section end -->
     
+    <!-- header hero -->
+
+    <header-hero>
+      <div class="container">
+        
+      </div>
+    </header-hero>
+    <!-- header hero end -->
     
   </header>
   <RouterView />
@@ -44,7 +61,7 @@
 
 
 
-<script setup>
+<script>
 </script>
 
 

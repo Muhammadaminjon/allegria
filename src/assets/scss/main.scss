@@ -16,6 +16,7 @@
     margin: 0 auto;
 }
 html {
+    user-select: none;  
     height: 100%;
     scroll-behavior: smooth;
 }
