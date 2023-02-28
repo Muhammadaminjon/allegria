@@ -37,16 +37,10 @@
               <img src="@/assets/images/svg/basket.svg" alt="basket" />
             </button>
           </div>
+
         </div>
       </nav>
       <!-- header nav section end -->
-  
-      <!-- header hero -->
-  
-      <header-hero>
-        <div class="container"></div>
-      </header-hero>
-      <!-- header hero end -->
     </header>
     <RouterView />
   </template>
