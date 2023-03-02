@@ -1,4 +1,7 @@
-    .swiper {
+.hero{
+    margin-bottom: 119px;
+}
+.swiper {
     width: 100%;
     height: 585px;
 }
@@ -9,13 +12,14 @@
     font-family: 'Jost';
     line-height: 17px;
     font-size: 14px;
-    color: #EAE9E8;
+    color: rgba(37, 74, 90, .5);
+    opacity: 1;
     background: transparent;
     text-shadow: 2px 2px 50px #fff;
 }
 
 .swiper-pagination-bullet-active {
-      color: #254A5A;
+    color: rgba(37, 74, 90, 1);
   }
 
 .hero-text{
