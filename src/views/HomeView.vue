@@ -86,10 +86,23 @@
             :space-between="45"
             :modules="modules"
           >
-            <swiper-slide class="popular-cards-item" v-for="p in cat" :key="p.id">
-              <img class="popular-cards-item__img" :src="p.images[0]" alt="jpg"  />
+            <swiper-slide
+              class="popular-cards-item"
+              v-for="p in cat"
+              :key="p.id"
+            >
+              <img
+                class="popular-cards-item__img"
+                :src="p.images[0]"
+                alt="jpg"
+              />
               <section class="popular-cards-item-wrapper">
-                <h2 class="popular-cards-item-wrapper__title">{{ p.title }}</h2>
+                <router-link
+                  class="popular-cards-item-wrapper__title"
+                  :to="{ name: 'product', params: { id: p.id } }"
+                  >{{ p.title }}</router-link
+                >
+                <!-- <h2 class="popular-cards-item-wrapper__title">{{ p.title }}</h2> -->
                 <p class="popular-cards-item-wrapper__text">
                   {{ p.category.name }}
                 </p>
@@ -105,25 +118,46 @@
         </div>
       </div>
       <span class="popular__bottom">
-        <img class="bottom-img" src="@/assets/images/svg/logo.svg" alt="logo">
+        <img class="bottom-img" src="@/assets/images/svg/logo.svg" alt="logo" />
       </span>
     </div>
 
-<div class="about">
-  <div class="container">
-    
-  </div>
-</div>
+    <div class="about">
+      <div class="about-wrappers">
+        <div class="container">
+          <div class="about-wrappers-wrapper">
+            <section class="about-wrappers-wraper-item">
+              <h2 class="about-wrappers-wraper-item__title">
+                <span>О</span>нас
+              </h2>
+              <p class="about-wrappers-wraper-item__text">
+                Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipLorem
+                ipsumLoreLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+                ipLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem
+                ipsumLorem ipsumLorem ipsumipLorem ipsumLoremLorem ipsumLorem
+                ipsumLorem ipsumLorem ipsumLorem ipLorem ipsumLorem ipsumLorem
+                ipsumLorem
+              </p>
+            </section>
 
+            <div class="about-wrappers-wrapper2">
+              <img
+                class="about-img"
+                src="@/assets/images/jpg/about-img.jpg"
+                alt="about-img"
+              />
+              <img
+                class="about-icon"
+                src="@/assets/images/svg/about-icon.svg"
+                alt="about-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
-
-
-
-
-
-
-
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -149,10 +183,6 @@ const pagination2 = {
   width: 90,
   height: 90,
 };
-
-
-
-
 
 async function getProducts() {
   const res = await fetch("https://api.escuelajs.co/api/v1/products/");
