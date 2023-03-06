@@ -73,35 +73,57 @@
     <div class="popular">
       <div class="container">
         <h1 class="popular__title">Популярное</h1>
-        <swiper
-          class="popular-cards"
-          :speed="2000"
-          :autoplay="{
-            delay: 2000,
-            disableOnInteraction: false,
-          }"
-          :pagination="pagination"
-          :navigation="true"
-          :slides-per-view="4"
-          :space-between="50"
-          
-        >
-          <swiper-slide class="popular-cards-item" v-for="p in cat" :key="p.id">
-            <img class="popular-cards-item__img" :src="p.images[0]" alt="jpg" />
-            <section class="popular-cards-item-wrapper">
-              <h2 class="popular-cards-item-wrapper__title">{{ p.title }}</h2>
-              <p class="popular-cards-item-wrapper__text">Classic shoes</p>
-              <div class="popular-cards-item-wrapper-coust">
-                <p class="popular-cards-item-wrapper-coust__text">6100 UAH</p>
-                <p class="popular-cards-item-wrapper-coust__text">3800 UAH</p>
-              </div>
-            </section>
-          </swiper-slide>
-        </swiper>
+        <div class="popular-cards__wrapper">
+          <swiper
+            class="popular-cards"
+            :autoplay="{
+              delay: 2000,
+              disableOnInteraction: false,
+            }"
+            pagination
+            :navigation="true"
+            :slides-per-view="4"
+            :space-between="45"
+            :modules="modules"
+          >
+            <swiper-slide class="popular-cards-item" v-for="p in cat" :key="p.id">
+              <img class="popular-cards-item__img" :src="p.images[0]" alt="jpg"  />
+              <section class="popular-cards-item-wrapper">
+                <h2 class="popular-cards-item-wrapper__title">{{ p.title }}</h2>
+                <p class="popular-cards-item-wrapper__text">
+                  {{ p.category.name }}
+                </p>
+                <div class="popular-cards-item-wrapper-coust">
+                  <p class="popular-cards-item-wrapper-coust__price"></p>
+                  <p class="popular-cards-item-wrapper-coust__text">
+                    ${{ p.price }}
+                  </p>
+                </div>
+              </section>
+            </swiper-slide>
+          </swiper>
+        </div>
       </div>
+      <span class="popular__bottom">
+        <img class="bottom-img" src="@/assets/images/svg/logo.svg" alt="logo">
+      </span>
     </div>
+
+<div class="about">
+  <div class="container">
+    
+  </div>
+</div>
+
   </main>
 </template>
+
+
+
+
+
+
+
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
@@ -109,7 +131,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
 import "swiper/css/pagination";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
 
@@ -122,14 +144,23 @@ const pagination = {
     return '<span class="' + className + '">' + 0 + (index + 1) + "</span>";
   },
 };
+const pagination2 = {
+  clickable: true,
+  width: 90,
+  height: 90,
+};
+
+
+
+
 
 async function getProducts() {
-  const res = await fetch("https://api.escuelajs.co/api/v1/products");
+  const res = await fetch("https://api.escuelajs.co/api/v1/products/");
   const data = await res.json();
   products.value = data;
 }
 const cat = computed(() => {
-  return products.value.filter((p) => p.category.id === 2);
+  return products.value.filter((p) => p.category.id === 4);
 });
 const products = ref([]);
 getProducts();
