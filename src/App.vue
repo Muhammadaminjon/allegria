@@ -70,7 +70,7 @@
       </div>
     </div>
       <span class="footer-line"></span>
-    <div class="footer-bottom">
+    <div class="footer-bottom container">
       <h3 class="footer-bottom-text">Все права защищены © 2020 Allegria.com</h3>
       <h3 class="footer-bottom-text">Дизайн и разработка:</h3>
     </div>

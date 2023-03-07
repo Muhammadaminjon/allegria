@@ -97,12 +97,9 @@
                 alt="jpg"
               />
               <section class="popular-cards-item-wrapper">
-                <router-link
-                  class="popular-cards-item-wrapper__title"
-                  :to="{ name: 'product', params: { id: p.id } }"
-                  >{{ p.title }}</router-link
-                >
-                <!-- <h2 class="popular-cards-item-wrapper__title">{{ p.title }}</h2> -->
+                <router-link class="popular-cards-item-wrapper__title" :to="{ name: 'product', params: { id: p.id } }">
+                  {{ p.title }}
+                </router-link>
                 <p class="popular-cards-item-wrapper__text">
                   {{ p.category.name }}
                 </p>
@@ -177,11 +174,6 @@ const pagination = {
   renderBullet: function (index, className) {
     return '<span class="' + className + '">' + 0 + (index + 1) + "</span>";
   },
-};
-const pagination2 = {
-  clickable: true,
-  width: 90,
-  height: 90,
 };
 
 async function getProducts() {
